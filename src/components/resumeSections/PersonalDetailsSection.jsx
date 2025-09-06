@@ -4,9 +4,11 @@ import Accordion from 'react-bootstrap/Accordion';
 
 const PersonalDetailsSection = ({ formData, setFormData }) => {
     return (
-        <Accordion defaultActiveKey="0" className="">
+        <Accordion defaultActiveKey="0">
             <Accordion.Item eventKey="0">
-                <Accordion.Header>Personal Details</Accordion.Header>
+                <h2 className="accordion-header">
+                    <Accordion.Button tabIndex={"-1"}>Personal Details</Accordion.Button>
+                </h2>
                 <Accordion.Body>
                     <div className="container p-1">
                         <div className="row">
@@ -19,7 +21,7 @@ const PersonalDetailsSection = ({ formData, setFormData }) => {
                                     infoPopupPlacement="bottom"
                                     infoPopupBody="This should include your first name, middle name (if any), and last name."
                                     inputValue={formData.name}
-                                    inputEventOnChange={(e)=>{setFormData({...formData, name: e.target.value})}}
+                                    inputEventOnChange={(e) => { setFormData({ ...formData, name: e.target.value }) }}
                                 />
                             </div>
                             <div className="col-12 col-sm-4">
@@ -31,7 +33,7 @@ const PersonalDetailsSection = ({ formData, setFormData }) => {
                                     infoPopupPlacement="bottom"
                                     infoPopupBody="This should be your current or most recent job title, e.g., 'Software Engineer', 'Data Scientist', etc."
                                     inputValue={formData.title}
-                                    inputEventOnChange={(e)=>{setFormData({...formData, title: e.target.value})}}
+                                    inputEventOnChange={(e) => { setFormData({ ...formData, title: e.target.value }) }}
 
                                 />                </div>
                             <div className="col-12">
@@ -43,7 +45,7 @@ const PersonalDetailsSection = ({ formData, setFormData }) => {
                                     infoPopupPlacement="bottom"
                                     infoPopupBody="This should be a professional email address where you can be reached."
                                     inputValue={formData.email}
-                                    inputEventOnChange={(e)=>{setFormData({...formData, email: e.target.value})}}
+                                    inputEventOnChange={(e) => { setFormData({ ...formData, email: e.target.value }) }}
 
                                 />                </div>
                             <div className="col-md-12">
@@ -55,7 +57,7 @@ const PersonalDetailsSection = ({ formData, setFormData }) => {
                                     infoPopupPlacement="bottom"
                                     infoPopupBody="This can be something like your city and country, e.g., 'San Francisco, USA'."
                                     inputValue={formData.location}
-                                    inputEventOnChange={(e)=>{setFormData({...formData, location: e.target.value})}}
+                                    inputEventOnChange={(e) => { setFormData({ ...formData, location: e.target.value }) }}
 
                                 />                </div>
 

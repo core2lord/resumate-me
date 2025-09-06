@@ -1,58 +1,47 @@
 import React from "react";
 import InputWithPopover from "../Inputs";
+import { FormTextarea } from "../Inputs";
 import Accordion from 'react-bootstrap/Accordion';
 
-const ProjectDetailsSection = () => {
+const ProjectDetailsSection = ({ formData, setFormData }) => {
     return <Accordion defaultActiveKey="0">
         <Accordion.Item eventKey="0">
-            <Accordion.Header>Personal Details</Accordion.Header>
-            <Accordion.Body>
+            <h2 className="accordion-header">
+                <Accordion.Button tabIndex={"-1"}>Projects</Accordion.Button>
+            </h2> 
+                <Accordion.Body>
                 <div className="container p-1">
-                    <div className="row">
-                        <div className="col-12 col-sm-8">
-                            <InputWithPopover
-                                labelName="Full Name"
-                                inputType="text"
-                                inputId="inputFullName"
-                                infoPopupHeader="Enter your full name"
-                                infoPopupPlacement="bottom"
-                                infoPopupBody="This should include your first name, middle name (if any), and last name."
-                            />
-                        </div>
-                        <div className="col-12 col-sm-4">
-                            <InputWithPopover
-                                labelName="Title"
-                                inputType="text"
-                                inputId="inputTitle"
-                                infoPopupHeader="Enter your lastest profession"
-                                infoPopupPlacement="bottom"
-                                infoPopupBody="This should be your current or most recent job title, e.g., 'Software Engineer', 'Data Scientist', etc."
-                            />                </div>
+                    <div className="row g-2">
                         <div className="col-12">
                             <InputWithPopover
-                                labelName="Contact Email"
+                                labelDisplayText="Summary \ Name"
                                 inputType="text"
-                                inputId="inputEmail"
-                                infoPopupHeader="Enter a valid email address"
-                                infoPopupPlacement="bottom"
-                                infoPopupBody="This should be a professional email address where you can be reached."
-                            />                </div>
-                        <div className="col-md-12">
-                            <InputWithPopover
-                                labelName="Location"
-                                inputType="text"
-                                inputId="inputLocation"
-                                infoPopupHeader="Enter your current location"
-                                infoPopupPlacement="bottom"
-                                infoPopupBody="This can be something like your city and country, e.g., 'San Francisco, USA'."
-                            />                </div>
-
+                                inputId="inputProjectSummary"
+                                inputPlaceholder="ex. ( Database Migration to the cloud )"
+                                infoPopupHeader="Project Summary"
+                                infoPopupPlacement="right"
+                                infoPopupBody="The idea or goal of the project."
+                                inputValue={formData.projectSummary}
+                                inputEventOnChange={(e) => { setFormData({ ...formData, projectSummary: e.target.value }) }}
+                            />
+                        </div>
+                        <div className="col-12">
+                            <FormTextarea
+                                labelDisplayText="Description \ Accomplishments"
+                                textareaName="ProjectDescription"
+                                textareaId="inputProjectDescription"
+                                textareaPlaceholder="Mention any accomplishments or challenges you've overcome during the project. May include things such as the duration of the project and any potential solutions or ideas that resulted in a success for the team."
+                                infoPopupHeader="Day-to-Day Responsibilities"
+                                infoPopupPlacement="left"
+                                infoPopupBody="This section should detail your daily activities, including specific tasks, tools used, and any methodologies followed. Aim for a clear and concise description that highlights your contributions."
+                                textareaValue={formData.projectDescription}
+                            />
+                        </div>
                     </div>
                 </div>
             </Accordion.Body>
         </Accordion.Item>
     </Accordion>
-        ;
 };
 
 export default ProjectDetailsSection;
